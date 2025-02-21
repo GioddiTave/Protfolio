@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On Scroll Animation</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 200vh; /* Damit wir scrollen können */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10%;
+        }
+
+        .text-container {
+            width: 50ch;
+        }
+
+        .right-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            gap: 20px; /* Abstand zwischen den Wörtern */
+        }
+
+        .moving-text {
+            font-size: 2rem;
+            font-weight: bold;
+            opacity: 0;
+            transform: translateX(150px);
+            transition: opacity 1.5s ease-out, transform 2s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-container">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+    </div>
+    
+    <div class="right-text">
+        <div class="moving-text" data-speed="0.9">Product Design</div> <!-- Geschwindigkeit kann hier angepasst werden -->
+        <div class="moving-text" data-speed="0.7">Visual Communication</div> <!-- Geschwindigkeit kann hier angepasst werden -->
+        <div class="moving-text" data-speed="0.5">Interactive Media</div> <!-- Geschwindigkeit kann hier angepasst werden -->
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const movingTexts = document.querySelectorAll(".moving-text");
+            let lastScrollY = window.scrollY;
+
+            function updateTextPosition() {
+                let currentScrollY = window.scrollY;
+                let scrollDirection = currentScrollY > lastScrollY ? 1 : -1;
+                
+                movingTexts.forEach((text, index) => {
+                    let speed = parseFloat(text.dataset.speed); // Hier wird die Geschwindigkeit aus dem HTML-Attribut gelesen
+                    let movement = Math.max(0, 150 - currentScrollY * speed);
+                    text.style.transform = `translateX(${movement}px)`;
+                    text.style.opacity = currentScrollY > 50 ? "1" : "0";
+                });
+                
+                lastScrollY = currentScrollY;
+            }
+
+            window.addEventListener("scroll", updateTextPosition);
+            updateTextPosition(); // Initial Call
+        });
+    </script>
+</body>
+</html>
