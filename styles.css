@@ -90,6 +90,7 @@ nav ul li a {
   justify-content: center;
   gap: 2rem;
   margin-top: 2rem;
+  text-align: left;
 }
 
 .about img {
@@ -102,10 +103,13 @@ nav ul li a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem; /* Abstand zum Absatz kann hier angepasst werden */
+  padding: 2 rem; /* Abstand zum Absatz kann hier angepasst werden */
 }
+
+
 .text-container {
   width: 50ch;
+  text-align: left;
 }
 .right-text {
   display: flex;
