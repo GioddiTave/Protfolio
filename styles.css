@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   color: #333;
+  min-height: 200vh; /* NEU: 200% der Bildschirmhöhe, damit gescrollt werden kann */
 }
 
 nav {
@@ -31,6 +32,16 @@ nav ul li a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
+}
+
+/* NEU: Hamburger Menu Styles */
+.hamburger {
+  display: none; /* Auf größeren Bildschirmen ausblenden */
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
 /* Hero-Section */
@@ -82,6 +93,7 @@ nav ul li a {
 .about {
   padding: 4rem 2rem;
   text-align: center;
+  background: #fafafa;
 }
 
 .about-content {
@@ -89,41 +101,54 @@ nav ul li a {
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  margin-top: 2rem;
+  margin-bottom: 2rem
+}
+
+.about-content p {
+  width: 60ch;
   text-align: left;
+  
 }
 
 .about img {
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
 }
 
 .about-education {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 2 rem; /* Abstand zum Absatz kann hier angepasst werden */
+  align-items: flex-start;
+  gap: 2rem;
 }
-
 
 .text-container {
   width: 50ch;
   text-align: left;
 }
+
 .right-text {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 20px;
+  gap: 1rem;
+  align-items: flex-start; /* oder center, je nach Geschmack */
 }
+
+/* Die drei Wörter starten unsichtbar rechts (translateX(150px)) */
 .moving-text {
-  font-size: 2rem;
-  font-weight: bold;
+  transform: translateX(300px);
   opacity: 0;
-  transform: translateX(150px);
-  transition: opacity 1.5s ease-out, transform 2s ease-out;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  font-size: 1.5rem; /* Anpassen nach Geschmack */
+  font-weight: 600;  /* Etwas fetter */
+  /* Falls du 'data-speed' nicht mehr nutzt, kannst du es weglassen */
 }
 
 /* Projects-Section */
@@ -205,7 +230,8 @@ nav ul li a {
   gap: 1rem;
 }
 
-.contact input, .contact textarea {
+.contact input,
+.contact textarea {
   padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -226,4 +252,69 @@ footer {
   color: #fff;
   text-align: center;
   padding: 1rem;
+}
+
+/* NEU: Zusätzliche Media Queries für bessere Responsiveness */
+
+/* Für Bildschirme bis 768px */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    display: none; /* Navigation standardmäßig ausblenden */
+    text-align: center;
+  }
+  nav ul.active {
+    display: flex; /* Navigation einblenden, wenn aktiv */
+  }
+  .hamburger {
+    display: block; /* Hamburger-Button anzeigen */
+  }
+  .hero h1 {
+    font-size: 2rem; /* Kleinere Überschrift */
+  }
+  .hero p {
+    font-size: 1rem; /* Kleinere Textgröße */
+  }
+  .about-content {
+    flex-direction: column; /* Elemente untereinander anordnen */
+    text-align: center;     /* Text zentrieren */
+  }
+  .about-content p {
+    width: auto;        /* Breite anpassen */
+    padding: 0 1rem;    /* Innenabstand hinzufügen */
+    text-align: center; /* Zentrierter Text */
+  }
+  .about-education,
+  .about-skills {
+    flex-direction: column; /* Elemente untereinander anordnen */
+    align-items: center;    /* Zentrieren */
+  }
+  .project-grid {
+    grid-template-columns: 1fr; /* Einspaltiges Layout */
+  }
+  .contact form {
+    width: 90%; /* Formularbreite anpassen */
+  }
+  footer {
+    font-size: 0.9rem; /* Kleinere Schriftgröße im Footer */
+  }
+}
+
+/* Für sehr kleine Bildschirme bis 480px */
+@media (max-width: 480px) {
+  nav ul li {
+    margin: 0.5rem 0; /* Reduzierter Abstand der Navigationselemente */
+  }
+  .hamburger {
+    font-size: 1.5rem; /* Anpassung der Hamburger-Schriftgröße */
+  }
+  .hero h1 {
+    font-size: 1.75rem; /* Weitere Reduzierung der Überschrift */
+  }
+  .hero p {
+    font-size: 0.9rem;  /* Weitere Anpassung der Textgröße */
+  }
+  .moving-text {
+    font-size: 1.5rem;  /* Anpassung der moving-text-Größe */
+  }
 }

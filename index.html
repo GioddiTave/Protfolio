@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mein Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="styles.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+  />
 </head>
 <body>
   <!-- Navigation -->
   <nav>
-    <ul>
+    <button id="hamburger-menu" class="hamburger">☰ <!-- NEU: Hamburger Menu --></button>
+    <ul id="nav-list">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
@@ -54,47 +58,44 @@
 
   <!-- About-Section -->
   <section id="about" class="about">
-    <h2>Über mich</h2>
+    <h2>About me</h2>
     <div class="about-content">
-      <img src="portrait.jpg" alt="Portrait">
+      <img src="portrait.jpg" alt="Portrait" />
       <p>
-        Zwischen digitalen und physischen Welten, zwischen Gestaltung und Interaktion – 
-        meine Arbeit bewegt sich dort, wo Disziplinen aufeinandertreffen. Mit einem Hintergrund in
-         Produktdesign und visueller Kommunikation erforsche ich interaktive Medien und digitale Narrative. <br>
-         <!-- <br>
-         Manche nennen mich Gioddi, andere einfach Judith – am liebsten lasse ich meine Arbeit für sich sprechen. -->
-
+        Zwischen digitalen und physischen Welten, zwischen Gestaltung und Interaktion –
+        meine Arbeit bewegt sich dort, wo Disziplinen aufeinandertreffen. Mit einem
+        Hintergrund in Produktdesign und visueller Kommunikation erforsche ich
+        interaktive Medien und digitale Narrative.
       </p>
     </div>
     <div class="about-education">
       <div class="text-container">
-        <p>2023-2025 <br>
-          Furtwangen University, <br>
-          Faculty of Design of Interactive Media <br>
-          <br>
-          2022 <br>
-          BA in Design and Arts - Major in Design. <br>
-          <br>
-          2019-2022 <br>
-          Free University of Bolzano, <br>
-          Faculty of Design and Arts (PD/ VC) <br>
-          <br>
-          2019 <br>
-          Graduation at the “Josef Gasser” <br>
-          social science grammar school in Brixen. <br>
-          Main course: Music</p> <br>
+        <p>
+          2023-2025 <br />
+          Furtwangen University, <br />
+          Faculty of Design of Interactive Media <br /><br />
+          2022 <br />
+          BA in Design and Arts - Major in Design. <br /><br />
+          2019-2022 <br />
+          Free University of Bolzano, <br />
+          Faculty of Design and Arts (PD/ VC) <br /><br />
+          2019 <br />
+          Graduation at the “Josef Gasser” <br />
+          social science grammar school in Brixen. <br />
+          Main course: Music
+        </p>
       </div>
-      
+
+      <!-- NEU: Stacked Words Container -->
+      <!-- Hier die rechte Spalte mit den Wörtern -->
       <div class="right-text">
-          <div class="moving-text" data-speed="0.5">Product Design</div> <!-- Geschwindigkeit kann hier angepasst werden -->
-          <div class="moving-text" data-speed="0.7">Visual Communication</div> <!-- Geschwindigkeit kann hier angepasst werden -->
-          <div class="moving-text" data-speed="0.9">Interactive Media</div> <!-- Geschwindigkeit kann hier angepasst werden -->
+        <div class="moving-text" data-speed="0.5" data-delay="0">Product Design</div>
+        <div class="moving-text" data-speed="0.6" data-delay="100">Visual Communication</div>
+        <div class="moving-text" data-speed="0.7" data-delay="200">Interactive Media</div>
       </div>
     </div>
     <div class="about-skills">
-      <p>
-        Force-directed graph drawing
-      </p>
+      <p>Force-directed graph drawing</p>
     </div>
   </section>
 
@@ -107,9 +108,7 @@
       <button class="filter-btn" data-filter="branding">Visual communication</button>
       <button class="filter-btn" data-filter="development">Interactive Media</button>
     </div>
-    <div class="project-grid">
-      <!-- Projekte werden hier dynamisch geladen -->
-    </div>
+    <div class="project-grid"><!-- Projekte werden hier dynamisch geladen --></div>
     <div class="pagination">
       <button id="prev-page">Back</button>
       <span id="page-indicator">Seite 1 von 3</span>
@@ -121,8 +120,8 @@
   <section id="contact" class="contact">
     <h2>Kontakt</h2>
     <form>
-      <input type="text" placeholder="Dein Name" required>
-      <input type="email" placeholder="Deine E-Mail" required>
+      <input type="text" placeholder="Dein Name" required />
+      <input type="email" placeholder="Deine E-Mail" required />
       <textarea placeholder="Deine Nachricht" required></textarea>
       <button type="submit" class="btn">Senden</button>
     </form>
@@ -133,6 +132,7 @@
     <p>&copy; 2025 [Judith Tavella]. Alle Rechte vorbehalten.</p>
   </footer>
 
+  <!-- Swiper JS und eigenes Script -->
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
