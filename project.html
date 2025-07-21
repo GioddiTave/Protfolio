@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projekt Titel Platzhalter – Judith Tavella Portfolio</title>
+
+    <!-- Basis‑Styles + Swiper -->
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="project.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+  </head>
+
+  <body>
+    <!-- Navigation identisch zur Startseite -->
+    <header class="nav" role="banner">
+      <a href="index.html#home" class="nav__brand">JT</a>
+      <button class="nav__toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menü öffnen">☰</button>
+      <ul id="primary-navigation" class="nav__list" role="navigation">
+        <li><a class="nav__link" href="index.html#home">Home</a></li>
+        <li><a class="nav__link" href="index.html#about">About</a></li>
+        <li><a class="nav__link" href="index.html#projects">Projects</a></li>
+        <li><a class="nav__link" href="index.html#contact">Contact</a></li>
+      </ul>
+    </header>
+
+    <!-- Hero‑Banner mit Titel & Teaser‑Text -->
+    <section class="project-hero">
+      <picture>
+        <!-- TODO: eigenes Hero‑Bild einfügen -->
+        <img src="images/DIM/Thesis/Element.png" alt="Hero‑Bild von Projekt Titel" />
+      </picture>
+      <div class="project-hero__inner">
+        <h1>Projekt Titel Platzhalter</h1>
+        <p class="subtitle">Kurzer Claim oder Untertitel in max. 2 Zeilen</p>
+      </div>
+    </section>
+
+    <!-- Projekt‑Metadaten -->
+    <section class="project-meta">
+      <div class="container">
+        <ul class="meta-list">
+          <li><strong>Kunde</strong><span>— Kunde XYZ</span></li>
+          <li><strong>Jahr</strong><span>— 2025</span></li>
+          <li><strong>Rolle</strong><span>— UX & XR‑Design</span></li>
+          <li><strong>Tools</strong><span>— Blender · Unity · Figma</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Galerie / Slider (optional) -->
+    <section class="project-gallery">
+    <div class="container"> 
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="images/DIM/Thesis/Element.png" alt="Galeriebild 1" /></div>
+          <div class="swiper-slide"><img src="images/DIM/Thesis/Element.png" alt="Galeriebild 2" /></div>
+          <div class="swiper-slide"><img src="images/DIM/Thesis/Element.png" alt="Galeriebild 3" /></div>
+        </div>
+        <!-- Navigation‑Pfeile -->
+        <button class="swiper-button-prev" aria-label="Vorheriges Bild"></button>
+        <button class="swiper-button-next" aria-label="Nächstes Bild"></button>
+      </div>
+    </div>
+    </section>
+
+    <!-- Inhaltliche Story (Text + Bilder) -->
+    <article class="project-content container">
+      <h2>Über das Projekt</h2>
+      <p>Dieser Abschnitt gibt einen kompakten Überblick über Ausgangssituation, Zielsetzung und die zentrale Herausforderung des Projekts. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis massa vitae enim ullamcorper fermentum.</p>
+
+      <h3>Konzept</h3>
+      <p>Beschreibe hier deine Herangehensweise, Recherche‑Erkenntnisse und das Storytelling‑Gerüst. Maecenas eget sapien vitae turpis interdum interdum. Duis tempus, velit et varius sodales, mauris felis tempor nulla, in tristique metus augue nec justo.</p>
+
+      <figure class="wide">
+        <!-- Konzept‑Visual -->
+        <img src="images/DIM/Thesis/Element.png" alt="Konzeptskizzen und Moodboards" />
+        <figcaption>Frühe Ideenskizzen &amp; Moodboards</figcaption>
+      </figure>
+
+      <h3>Umsetzung</h3>
+      <p>Erkläre den Design‑ und Entwicklungs‑Prozess: Prototyping, Materialauswahl, technische Implementierung usw. Integer non quam at diam faucibus efficitur. Vivamus id sollicitudin sem, id tincidunt neque.</p>
+
+      <div class="image-grid">
+        <img src="images/DIM/Thesis/Element.png" alt="Detailansicht Komponente 1" />
+        <img src="images/DIM/Thesis/Element.png" alt="Detailansicht Komponente 2" />
+        <img src="images/DIM/Thesis/Element.png" alt="Detailansicht Komponente 3" />
+      </div>
+
+      <h3>Ergebnis &amp; Impact</h3>
+      <p>Fasse Resultate, Nutzer‑Feedback und messbare KPIs zusammen. Praesent commodo tellus a dolor mattis, vitae dictum augue viverra. Cras sed ipsum at quam ullamcorper volutpat.</p>
+    </article>
+
+    <!-- Call‑To‑Action (zurück zu Projekten) -->
+    <section class="back-to-projects">
+      <a href="index.html#projects" class="hero__btn">Weitere Projekte</a>
+    </section>
+
+    <footer>© 2025 Judith Tavella</footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script src="project.js"></script>
+  </body>
+</html>

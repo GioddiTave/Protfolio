@@ -24,10 +24,10 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
 // ===================== Dummy Projects & Filter =====================
 const projects = [
-  { id: 1, cat: 'design',      title: 'Ouroboros',            desc: 'Modulares Möbelsystem' },
-  { id: 2, cat: 'branding',    title: 'Natoure',              desc: 'Branding für nachhaltige Mode' },
-  { id: 3, cat: 'development', title: 'Tactile Constellations', desc: 'Interaktive Installation' },
-  { id: 4, cat: 'design',      title: 'Sphaira',              desc: 'VR-Interface für Museumsräume' },
+  { cat: 'design',      title: 'Ouroboros',            desc: 'Modulares Möbelsystem', url:   'project.html'  },
+  { cat: 'branding',    title: 'Natoure',              desc: 'Branding für nachhaltige Mode' },
+  { cat: 'development', title: 'Tactile Constellations', desc: 'Interaktive Installation' },
+  { cat: 'design',      title: 'Sphaira',              desc: 'VR-Interface für Museumsräume' },
   { id: 5, cat: 'branding',    title: 'Fondue',               desc: 'Variable Typo-Logo-System' },
   { id: 6, cat: 'development', title: 'Drift XR',             desc: 'WebXR-Prototyp Surf-Simulator' },
 ];
@@ -45,13 +45,13 @@ function render(cat = 'all') {
 
   grid.innerHTML = projects
     .filter(p => cat === 'all' || p.cat === cat)
-    .map(
-      p => `<article class="card" data-cat="${p.cat}">
-              <div class="card__img" aria-hidden="true"></div>
-              <h3>${p.title}</h3>
-              <p>${p.desc}</p>
-            </article>`
-    )
+    .map(p => `
+      <a href="${p.url}" class="card" data-cat="${p.cat}">
+        <div class="card__img" aria-hidden="true"></div>
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+      </a>
+    `)
     .join('');
 }
 btns.forEach(b => b.addEventListener('click', () => render(b.dataset.filter)));
@@ -64,3 +64,22 @@ new Swiper('.swiper-container', {
   autoplay: { delay: 4000, disableOnInteraction: false },
 });
 */
+
+
+
+/* ===== eigenes Projekt-Skript (nur falls Slider gebraucht wird) ===== */
+if (document.querySelector('.swiper-container')) {
+  new Swiper('.swiper-container', {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 32,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      800: { slidesPerView: 1.2 },
+      1200: { slidesPerView: 1.6 },
+    },
+  });
+}
