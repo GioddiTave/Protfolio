@@ -1,139 +1,139 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mein Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
-  />
-</head>
-<body>
-  <!-- Navigation -->
-  <nav>
-    <button id="hamburger-menu" class="hamburger">☰ <!-- NEU: Hamburger Menu --></button>
-    <ul id="nav-list">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Judith Tavella — Portfolio</title>
 
-  <!-- Hero-Section mit Slider -->
-  <section id="home" class="hero">
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide" style="background-color: #a8e6cf;">
-          <div class="hero-content">
-            <h1>Projekt 1</h1>
-            <p>Ein modernes Möbeldesign, das Funktionalität und Ästhetik vereint.</p>
-            <a href="#projects" class="btn">Mehr erfahren</a>
-          </div>
-        </div>
-        <div class="swiper-slide" style="background-color: #dcedc1;">
-          <div class="hero-content">
-            <h1>Projekt 2</h1>
-            <p>Ein Branding-Projekt für eine nachhaltige Mode-Marke.</p>
-            <a href="#projects" class="btn">Mehr erfahren</a>
-          </div>
-        </div>
-        <div class="swiper-slide" style="background-color: #ffd3b6;">
-          <div class="hero-content">
-            <h1>Projekt 3</h1>
-            <p>Eine interaktive Installation, die Kunst und Technologie verbindet.</p>
-            <a href="#projects" class="btn">Mehr erfahren</a>
-          </div>
-        </div>
-      </div>
-      <!-- Add Pagination -->
-      <div class="swiper-pagination"></div>
-      <!-- Add Navigation -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-    </div>
-  </section>
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-  <!-- About-Section -->
-  <section id="about" class="about">
-    <h2>About me</h2>
-    <div class="about-content">
-      <img src="portrait.jpg" alt="Portrait" />
-      <p>
-        Zwischen digitalen und physischen Welten, zwischen Gestaltung und Interaktion –
-        meine Arbeit bewegt sich dort, wo Disziplinen aufeinandertreffen. Mit einem
-        Hintergrund in Produktdesign und visueller Kommunikation erforsche ich
-        interaktive Medien und digitale Narrative.
-      </p>
-    </div>
-    <div class="about-education">
-      <div class="text-container">
+  <body>
+    <!-- Navigation -->
+    <header class="nav" role="banner">
+      <a href="#home" class="nav__brand">JT</a>
+
+      <button
+        class="nav__toggle"
+        aria-controls="primary-navigation"
+        aria-expanded="false"
+        aria-label="Menü öffnen"
+      >
+        ☰
+      </button>
+
+      <ul id="primary-navigation" class="nav__list" role="navigation">
+        <li><a class="nav__link" href="#home">Home</a></li>
+        <li><a class="nav__link" href="#about">About</a></li>
+        <li><a class="nav__link" href="#projects">Projects</a></li>
+        <li><a class="nav__link" href="#contact">Contact</a></li>
+      </ul>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero" aria-label="Einleitung">
+      <div class="hero__inner">
+        <h1 class="hero__title">
+          Title
+        </h1>
         <p>
-          2023-2025 <br />
-          Furtwangen University, <br />
-          Faculty of Design of Interactive Media <br /><br />
-          2022 <br />
-          BA in Design and Arts - Major in Design. <br /><br />
-          2019-2022 <br />
-          Free University of Bolzano, <br />
-          Faculty of Design and Arts (PD/ VC) <br /><br />
-          2019 <br />
-          Graduation at the “Josef Gasser” <br />
-          social science grammar school in Brixen. <br />
-          Main course: Music
+          Ich verbinde physische und digitale Welten und mache komplexe Inhalte
+          erlebbar.
         </p>
+        <a class="hero__btn" href="#projects">Projekte ansehen</a>
       </div>
+    </section>
 
-      <!-- NEU: Stacked Words Container -->
-      <!-- Hier die rechte Spalte mit den Wörtern -->
-      <div class="right-text">
-        <div class="moving-text" data-speed="0.5" data-delay="0">Product Design</div>
-        <div class="moving-text" data-speed="0.6" data-delay="100">Visual Communication</div>
-        <div class="moving-text" data-speed="0.7" data-delay="200">Interactive Media</div>
+    <!-- About Section -->
+    <section id="about" aria-labelledby="about-title">
+      <div class="container about__grid">
+        <div>
+          <h2 id="about-title">Über mich</h2>
+          <p>
+            Zwischen Gestaltung, Storytelling und Technologie suche ich nach
+            neuen Wegen, Informationen sinnlich erlebbar zu machen. Meine
+            Wurzeln liegen im Produktdesign &amp; visueller Kommunikation –
+            heute arbeite ich an Ausstellungen, XR-Prototypen und Motion-Design.
+          </p>
+        </div>
+        <figure>
+          <img
+            src="portrait.jpg"
+            alt="Portrait von Judith Tavella mit VR-Headset"
+          />
+        </figure>
       </div>
-    </div>
-    <div class="about-skills">
-      <p>Force-directed graph drawing</p>
-    </div>
-  </section>
+    </section>
 
-  <!-- Projects-Section -->
-  <section id="projects" class="projects">
-    <h2>My Projects</h2>
-    <div class="filters">
-      <button class="filter-btn active" data-filter="all">Alle</button>
-      <button class="filter-btn" data-filter="design">Product Design</button>
-      <button class="filter-btn" data-filter="branding">Visual communication</button>
-      <button class="filter-btn" data-filter="development">Interactive Media</button>
-    </div>
-    <div class="project-grid"><!-- Projekte werden hier dynamisch geladen --></div>
-    <div class="pagination">
-      <button id="prev-page">Back</button>
-      <span id="page-indicator">Seite 1 von 3</span>
-      <button id="next-page">Next</button>
-    </div>
-  </section>
+    <!-- Projects Section -->
+    <section id="projects" aria-labelledby="projects-title" class="projects">
+      <!-- Container hier 100 % breit -->
+      <div class="container container--full">
+        <h2 id="projects-title">Projekte</h2>
 
-  <!-- Kontakt-Section -->
-  <section id="contact" class="contact">
-    <h2>Kontakt</h2>
-    <form>
-      <input type="text" placeholder="Dein Name" required />
-      <input type="email" placeholder="Deine E-Mail" required />
-      <textarea placeholder="Deine Nachricht" required></textarea>
-      <button type="submit" class="btn">Senden</button>
-    </form>
-  </section>
+        <div
+          class="projects__filters"
+          role="toolbar"
+          aria-label="Projektfilter"
+        >
+          <button class="filter-btn" data-filter="all" aria-pressed="true">
+            Alle
+          </button>
+          <button class="filter-btn" data-filter="design" aria-pressed="false">
+            Product Design
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="branding"
+            aria-pressed="false"
+          >
+            Visuelle Kommunikation
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="development"
+            aria-pressed="false"
+          >
+            Interactive Media
+          </button>
+        </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 [Judith Tavella]. Alle Rechte vorbehalten.</p>
-  </footer>
+        <div class="projects__grid" id="project-grid"></div>
+      </div>
+    </section>
 
-  <!-- Swiper JS und eigenes Script -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-  <script src="script.js"></script>
-</body>
+    <!-- Contact Section -->
+    <section id="contact" aria-labelledby="contact-title" class="contact">
+      <div class="container">
+        <h2 id="contact-title">Kontakt</h2>
+        <form action="#" class="contact__form" novalidate>
+          <label>
+            <span>Name*</span>
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            <span>E-Mail*</span>
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            <span>Nachricht*</span>
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <button type="submit" class="hero__btn">Senden</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>© 2025 Judith Tavella</footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
