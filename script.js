@@ -83,3 +83,54 @@ if (document.querySelector('.swiper-container')) {
     },
   });
 }
+
+/* ---------- HERO SWIPER ---------- */
+if(document.querySelector('.hero-swiper')){
+  new Swiper('.hero-swiper',{
+    loop:true,
+    effect:'fade',
+    autoplay:{ delay:5000, disableOnInteraction:false },
+  });
+}
+
+/* ---------- SIMPLE i18n ---------- */
+const dict = {
+  de:{ home:'Home', about:'Über mich', projects:'Projekte', contact:'Kontakt', view:'Ansehen' },
+  en:{ home:'Home', about:'About', projects:'Projects', contact:'Contact', view:'View' },
+  it:{ home:'Home', about:'Chi sono', projects:'Progetti', contact:'Contatto', view:'Vedi' },
+};
+const langBtns = document.querySelectorAll('.lang-switch button');
+langBtns.forEach(b => b.onclick = () => setLang(b.dataset.lang));
+function setLang(l){
+  localStorage.setItem('lang',l);
+  document.querySelectorAll('[data-i18n]')
+          .forEach(el => el.textContent = dict[l][el.dataset.i18n] || el.textContent);
+  langBtns.forEach(b => b.setAttribute('aria-pressed',b.dataset.lang===l));
+}
+setLang(localStorage.getItem('lang')||'de');
+
+/* ---------- SKILL-BARS ---------- */
+function buildSkillBars(){
+  const list = document.getElementById('skillList');
+  if(!list) return;
+
+  /* Counts aus data-tools */
+  const counts = {};
+  document.querySelectorAll('[data-tools]').forEach(card=>{
+    card.dataset.tools.split(' ').forEach(t => counts[t] = (counts[t]||0)+1);
+  });
+
+  /* Prozent­werte relativ zum häufigsten Tool */
+  const max = Math.max(...Object.values(counts));
+  list.innerHTML = '';                               // leeren & neu aufbauen
+  Object.entries(counts).forEach(([tool,val])=>{
+    const li   = document.createElement('li'); li.className = 'skill';
+    li.innerHTML = `
+      <img src="icons/${tool.toLowerCase()}.svg" class="skill__icon" alt="${tool} Icon">
+      <div class="skill__bar"><span style="width:${val/max*100}%"></span></div>
+      <span class="skill__percent">${Math.round(val/max*100)}%</span>
+    `;
+    list.appendChild(li);
+  });
+}
+buildSkillBars();
