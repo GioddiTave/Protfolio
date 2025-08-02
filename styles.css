@@ -49,35 +49,41 @@ h1,h2,h3{line-height:1.2;margin:0 0 1rem;}
 .about__grid{display:grid;gap:2rem;align-items:center;}
 @media(min-width:900px){.about__grid{grid-template-columns:1fr 1fr;}}
 
-/* ======================  SKILLS  ====================== */
+/* =================  ABOUT / SKILLS  ================= */
 .skill-list{
   display:grid;
   gap:1rem;
   max-width:600px;
   margin:2rem auto 0;
-  padding:0 1.25rem;            /* NEW – seitlicher Innenabstand */
+  padding:0 1.25rem;                          /* NEW – Seiten-Padding */
 }
 .skill{display:flex;align-items:center;gap:1rem;}
-.skill__icon{
-  width:32px;                           /* NEW – fixe Icon-Breite  */
-  height:32px;                          /* NEW – fixe Icon-Höhe   */
-  flex:0 0 32px;                        /* NEW – verhindert Skalierung */
-}
-.skill__icon img,
-.skill__icon svg{                       /* NEW – egal ob <img> oder Inline-SVG */
-  width:100%;
-  height:100%;
-  object-fit:contain;                   /* NEW – skaliert gleichmäßig */
+.skill__icon{                                 /* bekommt <img class="skill__icon"> */
+  width:32px; height:32px; flex:0 0 32px;     /* NEW – feste Icon-Größe */
+  object-fit:contain;                         /* NEW – korrekt skalieren */
 }
 .skill__bar{
-  flex:1;
-  background:#e5e5e5;
-  border-radius:6px;
-  height:10px;
-  position:relative;
+  flex:1; background:#e5e5e5; border-radius:6px;
+  height:10px; position:relative;
 }
 .skill__bar span{display:block;height:100%;background:var(--c-accent);border-radius:inherit;}
 .skill__percent{min-width:3ch;text-align:right;font-weight:600;}
+
+/* --- Pfeil-Button zum Auf/Zu-Klappen ------------------------- */
+.skill-toggle{                                /* NEW */
+  display:block;margin:1.5rem auto 0;
+  background:none;border:none;cursor:pointer;padding:.25rem;
+}
+.chevron{                                     /* NEW */
+  width:28px;height:28px;display:inline-block;
+  border-bottom:4px solid var(--c-fg);
+  border-right:4px solid var(--c-fg);
+  transform:rotate(45deg);                   /* NEW – ersetzt experimentelles rotate: */
+  transition:transform .25s ease;            /* NEW */
+}
+.skill-toggle[aria-expanded="true"] .chevron{
+  transform:rotate(225deg);                  /* NEW */
+}
 
 /* ======================  PROJECTS  ====================== */
 .projects{background:#f4f4f4;}

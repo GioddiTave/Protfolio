@@ -109,24 +109,31 @@ function setLang(l){
 }
 setLang(localStorage.getItem('lang')||'de');
 
+
 /* ----------  SKILL-BARS  ---------- */
 function buildSkillBars(){
   const list=document.getElementById('skillList');
   if(!list)return;
-  const counts={};
+
+  /* Häufigkeit sammeln */
+  const counts = {};
   document.querySelectorAll('[data-tools]').forEach(card=>{
-    card.dataset.tools.split(' ').forEach(t=>counts[t]=(counts[t]||0)+1);
+    card.dataset.tools.split(' ').forEach(t=>{
+      counts[t] = (counts[t] || 0) + 1;
+    });
   });
-  const max=Math.max(...Object.values(counts));
-  list.innerHTML='';
-  Object.entries(counts).forEach(([tool,val])=>{
-    const li=document.createElement('li');
-    li.className='skill';
-    li.innerHTML=`
+
+  /* nach Häufigkeit sortieren – höchste Prozentzahl zuerst */
+  const sorted = Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+
+  const maxVal = sorted[0]?.[1] || 1;  
+
+  /* const max=Math.max(...Object.values(counts)); */
+  list.innerHTML = sorted.map(([tool,val])=>`                         <!-- NEW -->
+    <li class="skill">
       <img src="icons/SVG/${tool.toLowerCase()}.svg" class="skill__icon" alt="${tool} Icon">
-      <div class="skill__bar"><span style="width:${val/max*100}%"></span></div>
-      <span class="skill__percent">${Math.round(val/max*100)}%</span>`;
-    list.appendChild(li);
-  });
+      <div class="skill__bar"><span style="width:${val/maxVal*100}%"></span></div>
+      <span class="skill__percent">${Math.round(val/maxVal*100)}%</span>
+    </li>`).join('');
 }
 buildSkillBars();
