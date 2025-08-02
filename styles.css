@@ -8,7 +8,6 @@
   --s-container:min(65ch,90%);
 }
 
-/* ---------- RESET & TYPO ---------- */
 *,*::before,*::after{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{margin:0;font-family:"Roboto Mono",monospace;line-height:1.55;color:var(--c-fg);background:var(--c-bg);}
@@ -17,6 +16,7 @@ section{padding:5rem 0;scroll-margin-top:6rem;}
 h1,h2,h3{line-height:1.2;margin:0 0 1rem;}
 .skip-link{position:absolute;left:-999px;top:auto;background:#000;color:#fff;padding:.5rem 1rem;z-index:1000;}
 .skip-link:focus{left:0;}
+
 
 /* =================  NAVIGATION  ================= */
 .nav{position:fixed;top:0;left:0;width:100%;background:var(--c-nav);color:#fff;display:flex;align-items:center;gap:1rem;padding:.75rem 1rem;z-index:1000;}
@@ -50,10 +50,32 @@ h1,h2,h3{line-height:1.2;margin:0 0 1rem;}
 @media(min-width:900px){.about__grid{grid-template-columns:1fr 1fr;}}
 
 /* ======================  SKILLS  ====================== */
-.skill-list{display:grid;gap:1rem;max-width:600px;margin:2rem auto 0;padding:0;}
+.skill-list{
+  display:grid;
+  gap:1rem;
+  max-width:600px;
+  margin:2rem auto 0;
+  padding:0 1.25rem;            /* NEW – seitlicher Innenabstand */
+}
 .skill{display:flex;align-items:center;gap:1rem;}
-.skill__icon{width:32px;height:32px;flex:0 0 32px;}
-.skill__bar{flex:1;background:#e5e5e5;border-radius:6px;height:10px;position:relative;}
+.skill__icon{
+  width:32px;                           /* NEW – fixe Icon-Breite  */
+  height:32px;                          /* NEW – fixe Icon-Höhe   */
+  flex:0 0 32px;                        /* NEW – verhindert Skalierung */
+}
+.skill__icon img,
+.skill__icon svg{                       /* NEW – egal ob <img> oder Inline-SVG */
+  width:100%;
+  height:100%;
+  object-fit:contain;                   /* NEW – skaliert gleichmäßig */
+}
+.skill__bar{
+  flex:1;
+  background:#e5e5e5;
+  border-radius:6px;
+  height:10px;
+  position:relative;
+}
 .skill__bar span{display:block;height:100%;background:var(--c-accent);border-radius:inherit;}
 .skill__percent{min-width:3ch;text-align:right;font-weight:600;}
 
@@ -65,9 +87,24 @@ h1,h2,h3{line-height:1.2;margin:0 0 1rem;}
 .filter-btn[aria-pressed="true"],.filter-btn:hover{background:var(--c-accent);}
 .projects__grid{display:grid;gap:2rem;grid-template-columns:1fr;padding-inline:1rem;}
 @media(min-width:700px){.projects__grid{grid-template-columns:repeat(3,1fr);}}
-.card{background:#fff;border-radius:.5rem;box-shadow:0 2px 6px rgb(0 0 0/.05);padding:1rem;display:flex;flex-direction:column;color:inherit;text-decoration:none;}
+.card{
+  background:#fff;
+  border-radius:.5rem;
+  box-shadow:0 2px 6px rgb(0 0 0 / .05);
+  padding:1rem;
+  display:flex;
+  flex-direction:column;
+  color:inherit;
+  text-decoration:none;}
 .card:hover{transform:translateY(-2px);transition:transform .2s;}
-.card__img{aspect-ratio:4/3;background:#ddd;border-radius:.375rem;margin-bottom:1rem;}
+.card__img{
+  aspect-ratio:4/3;
+  background:#ddd;
+  border-radius:.375rem;
+  margin-bottom:1rem;
+  background-size:cover;        /* NEW – Bild füllt Container   */
+  background-position:center;   /* NEW – zentriert das Bild     */
+}
 .card h3{margin:0 0 .5rem;font-size:1.25rem;}
 
 /* ===================  CONTACT & FOOTER  =================== */
