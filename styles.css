@@ -69,21 +69,38 @@ h1,h2,h3{line-height:1.2;margin:0 0 1rem;}
 .skill__bar span{display:block;height:100%;background:var(--c-accent);border-radius:inherit;}
 .skill__percent{min-width:3ch;text-align:right;font-weight:600;}
 
-/* --- Pfeil-Button zum Auf/Zu-Klappen ------------------------- */
-.skill-toggle{                                /* NEW */
-  display:block;margin:1.5rem auto 0;
-  background:none;border:none;cursor:pointer;padding:.25rem;
+/* Collapsible */
+
+.skill-collapse{position:relative;}                                   /* NEW – macht summary absolut */
+.skill-collapse summary{                                              /* NEW – Button immer zentriert */
+  width:100%;
+  cursor:pointer;
+  padding:.75rem 0;
+  margin:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:.5rem;
+  list-style:none;
 }
-.chevron{                                     /* NEW */
-  width:28px;height:28px;display:inline-block;
-  border-bottom:4px solid var(--c-fg);
-  border-right:4px solid var(--c-fg);
-  transform:rotate(45deg);                   /* NEW – ersetzt experimentelles rotate: */
-  transition:transform .25s ease;            /* NEW */
+.chevron{                                                             /* unverändert – Pfeil ▼ */
+  width:22px;height:22px;
+  border-bottom:3px solid var(--c-fg);
+  border-right:3px solid var(--c-fg);
+  transform:rotate(45deg);
+  transition:transform .25s ease;
 }
-.skill-toggle[aria-expanded="true"] .chevron{
-  transform:rotate(225deg);                  /* NEW */
+
+/* ----------  Position wechseln, wenn aufgeklappt ---------- */
+.skill-collapse[open] summary{                                        /* NEW – Button ans Ende setzen  */
+  position:absolute;
+  bottom:-32px;           /* Pfeil steht 32 px unterhalb der Liste */
+  left:50%; transform:translateX(-50%);
 }
+.skill-collapse[open] .chevron{transform:rotate(225deg);}             /* NEW – Pfeil ▲ */
+
+/* etwas Luft, damit der absolute Button nicht überlappt */
+.skill-collapse[open] ul{padding-bottom:3.5rem;} 
 
 /* ======================  PROJECTS  ====================== */
 .projects{background:#f4f4f4;}

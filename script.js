@@ -110,30 +110,42 @@ function setLang(l){
 setLang(localStorage.getItem('lang')||'de');
 
 
-/* ----------  SKILL-BARS  ---------- */
-function buildSkillBars(){
-  const list=document.getElementById('skillList');
-  if(!list)return;
+/* --------------------------------  Top-5 + Collapsible  -------------------------------- */
+function buildSkillBars(){                                           // NEW
+  const topList   = document.getElementById('skillListTop');         // NEW
+  const moreList  = document.getElementById('skillListMore');        // NEW
+  const moreBox   = document.getElementById('skillMore');            // NEW
+  if(!topList || !moreList || !moreBox) return;                      // NEW
 
-  /* Häufigkeit sammeln */
-  const counts = {};
+  /* 1. Häufigkeit sammeln */
+  const counts={};
   document.querySelectorAll('[data-tools]').forEach(card=>{
     card.dataset.tools.split(' ').forEach(t=>{
-      counts[t] = (counts[t] || 0) + 1;
+      counts[t]=(counts[t]||0)+1;
     });
   });
+  const sorted=Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+  if(!sorted.length){topList.innerHTML='';moreList.innerHTML='';return;}
 
-  /* nach Häufigkeit sortieren – höchste Prozentzahl zuerst */
-  const sorted = Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+  const max=sorted[0][1];
+  const topFive=sorted.slice(0,5);
+  const others =sorted.slice(5);
 
-  const maxVal = sorted[0]?.[1] || 1;  
-
-  /* const max=Math.max(...Object.values(counts)); */
-  list.innerHTML = sorted.map(([tool,val])=>`                         <!-- NEW -->
+  /* 2. Render-Fn */
+  const render=(arr)=>arr.map(([tool,val])=>`
     <li class="skill">
-      <img src="icons/SVG/${tool.toLowerCase()}.svg" class="skill__icon" alt="${tool} Icon">
-      <div class="skill__bar"><span style="width:${val/maxVal*100}%"></span></div>
-      <span class="skill__percent">${Math.round(val/maxVal*100)}%</span>
+      <img src="icons/SVG/${tool.toLowerCase()}.svg" class="skill__icon" alt="${tool}">
+      <div class="skill__bar"><span style="width:${val/max*100}%"></span></div>
+      <span class="skill__percent">${Math.round(val/max*100)}%</span>
     </li>`).join('');
+
+  /* 3. Listen befüllen */
+  topList.innerHTML = render(topFive);
+  moreList.innerHTML= render(others);
+
+  /* 4. Collapsible ein-/ausblenden */
+  moreBox.style.display = others.length ? 'block' : 'none';
 }
-buildSkillBars();
+
+/* --- ruf die Funktion nach jedem render() oder Seitenstart auf --- */
+buildSkillBars();       
