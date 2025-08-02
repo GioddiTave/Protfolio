@@ -1,30 +1,30 @@
-<!-- =======================  project.html  ===================== -->
-<!DOCTYPE html> <!-- NEW -->
+<!DOCTYPE html>
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projekt Titel – Judith Tavella Portfolio</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway:wght@600&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet" /> <!-- NEW -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway:wght@600&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
   </head>
 
   <body>
     <header class="nav" role="banner">
-      <a href="index.html#home" class="nav__brand">JT</a>
-      <button class="nav__toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menü öffnen">☰</button>
+      <a href="index.html#home" class="nav__brand">JT</a>                         <!-- NEW -->
+      <ul class="lang-switch">                                                   <!-- NEW -->
+        <li><button data-lang="de" aria-pressed="true">DE</button></li>           <!-- NEW -->
+        <li><button data-lang="en">EN</button></li>                               <!-- NEW -->
+        <li><button data-lang="it">IT</button></li>                               <!-- NEW -->
+      </ul>                                                                       <!-- NEW -->
+      <button class="nav__toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menü öffnen">☰</button> <!-- NEW -->
+
       <ul id="primary-navigation" class="nav__list" role="navigation">
         <li><a class="nav__link" href="index.html#home">Home</a></li>
         <li><a class="nav__link" href="index.html#about">About</a></li>
         <li><a class="nav__link" href="index.html#projects">Projects</a></li>
         <li><a class="nav__link" href="index.html#contact">Contact</a></li>
-      </ul>
-      <ul class="lang-switch" aria-label="Sprache wechseln">
-        <li><button data-lang="de" aria-pressed="true">DE</button></li>
-        <li><button data-lang="en">EN</button></li>
-        <li><button data-lang="it">IT</button></li>
       </ul>
     </header>
 

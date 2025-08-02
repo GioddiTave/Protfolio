@@ -1,8 +1,8 @@
-// =======================  script.js  =========================
+// ===========================  script.js  ==========================
 /* ----------  NAVBAR TOGGLE  ---------- */
 const navToggle=document.querySelector('.nav__toggle');
 const navList=document.getElementById('primary-navigation');
-navToggle?.addEventListener('click',()=>{const open=navList.classList.toggle('is-open');navToggle.setAttribute('aria-expanded',open);});
+navToggle?.addEventListener('click',()=>{const isOpen=navList.classList.toggle('is-open');navToggle.setAttribute('aria-expanded',isOpen);});
 
 /* ----------  SMOOTH SCROLL  ---------- */
 document.querySelectorAll('a[href^="#"]').forEach(link=>{
@@ -13,14 +13,14 @@ document.querySelectorAll('a[href^="#"]').forEach(link=>{
   });
 });
 
-/* ----------  PROJECTS & FILTER  ---------- */
+/* ----------  PROJECTS-GRID & FILTER  ---------- */
 const projects=[
-  {cat:'design',title:'Ouroboros',desc:'Modulares Möbelsystem',url:'project.html',tools:'Blender Figma'}, // NEW
-  {cat:'branding',title:'Natoure',desc:'Branding für nachhaltige Mode',url:'project.html',tools:'Illustrator'}, // NEW
-  {cat:'development',title:'Tactile Constellations',desc:'Interaktive Installation',url:'project.html',tools:'ThreeJS'}, // NEW
-  {cat:'design',title:'Sphaira',desc:'VR-Interface für Museumsräume',url:'project.html',tools:'Unity Figma'}, // NEW
-  {cat:'branding',title:'Fondue',desc:'Variables Logo-System',url:'project.html',tools:'Glyphs'}, // NEW
-  {cat:'development',title:'Drift XR',desc:'WebXR-Prototyp Surf-Simulator',url:'project.html',tools:'WebXR Unity'} // NEW
+  {cat:'design',title:'Ouroboros',desc:'Modulares Möbelsystem',url:'project.html',tools:'Blender Figma'},
+  {cat:'branding',title:'Natoure',desc:'Branding für nachhaltige Mode',url:'project.html',tools:'Illustrator'},
+  {cat:'development',title:'Tactile Constellations',desc:'Interaktive Installation',url:'project.html',tools:'ThreeJS'},
+  {cat:'design',title:'Sphaira',desc:'VR-Interface für Museumsräume',url:'project.html',tools:'Unity Figma'},
+  {cat:'branding',title:'Fondue',desc:'Variables Logo-System',url:'project.html',tools:'Glyphs'},
+  {cat:'development',title:'Drift XR',desc:'WebXR-Prototyp Surf-Simulator',url:'project.html',tools:'WebXR Unity'}
 ];
 const grid=document.getElementById('project-grid');
 const btns=document.querySelectorAll('.filter-btn');
@@ -28,37 +28,33 @@ const btns=document.querySelectorAll('.filter-btn');
 function render(cat='all'){
   btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.filter===cat||cat==='all'&&b.dataset.filter==='all'));
   grid.innerHTML=projects.filter(p=>cat==='all'||p.cat===cat).map(p=>`
-    <a href="${p.url}" class="card" data-cat="${p.cat}" data-tools="${p.tools}"> <!-- NEW -->
+    <a href="${p.url}" class="card" data-cat="${p.cat}" data-tools="${p.tools}">
       <div class="card__img" aria-hidden="true"></div>
       <h3>${p.title}</h3>
       <p>${p.desc}</p>
     </a>`).join('');
-  buildSkillBars(); // NEW – Skills live up-to-date
+  buildSkillBars();
 }
 btns.forEach(b=>b.addEventListener('click',()=>render(b.dataset.filter)));
 render();
 
-/* ----------  SWIPER  ---------- */
+/* ----------  HERO-SWIPER  ---------- */
 if(document.querySelector('.hero-swiper')){
-  new Swiper('.hero-swiper',{loop:true,effect:'fade',pagination:{el:'.swiper-pagination',clickable:true},navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'},autoplay:{delay:5000,disableOnInteraction:false}});
+  new Swiper('.hero-swiper',{loop:true,effect:'fade',pagination:{el:'.hero-swiper .swiper-pagination',clickable:true},autoplay:{delay:10000,disableOnInteraction:false}}); // NEW
 }
+
+/* ----------  GALLERY-SWIPER  ---------- */
 if(document.querySelector('.swiper-container')){
   new Swiper('.swiper-container',{loop:true,slidesPerView:1,spaceBetween:32,navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'},breakpoints:{800:{slidesPerView:1.2},1200:{slidesPerView:1.6}}});
 }
 
 /* ----------  SIMPLE i18n  ---------- */
-const dict={
-  de:{home:'Home',about:'Über mich',projects:'Projekte',contact:'Kontakt',view:'Ansehen'},
-  en:{home:'Home',about:'About',projects:'Projects',contact:'Contact',view:'View'},
-  it:{home:'Home',about:'Chi sono',projects:'Progetti',contact:'Contatto',view:'Vedi'}
-};
+const dict={de:{home:'Home',about:'Über mich',projects:'Projekte',contact:'Kontakt',view:'Ansehen'},
+            en:{home:'Home',about:'About',projects:'Projects',contact:'Contact',view:'View'},
+            it:{home:'Home',about:'Chi sono',projects:'Progetti',contact:'Contatto',view:'Vedi'}};
 const langBtns=document.querySelectorAll('.lang-switch button');
 langBtns.forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
-function setLang(l){
-  localStorage.setItem('lang',l);
-  document.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=dict[l][el.dataset.i18n]||el.textContent);
-  langBtns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===l));
-}
+function setLang(l){localStorage.setItem('lang',l);document.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=dict[l][el.dataset.i18n]||el.textContent);langBtns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===l));}
 setLang(localStorage.getItem('lang')||'de');
 
 /* ----------  SKILL-BARS  ---------- */
@@ -70,10 +66,7 @@ function buildSkillBars(){
   list.innerHTML='';
   Object.entries(counts).forEach(([tool,val])=>{
     const li=document.createElement('li');li.className='skill';
-    li.innerHTML=`
-      <img src="icons/${tool.toLowerCase()}.svg" class="skill__icon" alt="${tool} Icon">
-      <div class="skill__bar"><span style="width:${val/max*100}%"></span></div>
-      <span class="skill__percent">${Math.round(val/max*100)}%</span>`;
+    li.innerHTML=`<img src="icons/${tool.toLowerCase()}.svg" class="skill__icon" alt="${tool} Icon"><div class="skill__bar"><span style="width:${val/max*100}%"></span></div><span class="skill__percent">${Math.round(val/max*100)}%</span>`;
     list.appendChild(li);
   });
 }
