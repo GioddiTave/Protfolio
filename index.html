@@ -110,12 +110,17 @@
     <!-- =======================  CONTACT  ======================= -->
     <section id="contact" aria-labelledby="contact-title" class="contact">
       <div class="container">
-        <h2 id="contact-title">Kontakt</h2>
+        <h2 id="contact-title">Kontakt</h2><!-- 
         <form class="contact__form" novalidate>
           <label><span>Name*</span><input type="text" name="name" required></label>
           <label><span>E-Mail*</span><input type="email" name="email" required></label>
-          <label><span>Nachricht*</span><textarea name="message" rows="5" required></textarea></label>
-          <button type="submit" class="hero__btn">Senden</button>
+          <label><span>Nachricht*</span><textarea name="message" rows="5" required></textarea></label -->
+          <!-- ersetzt den Senden-Button -->
+<a class="hero__btn"
+   href="mailto:judith.tavella@gmail.com">
+  Direkt mailen
+</a>
+          <p id="formStatus" class="form-status" hidden></p>  
         </form>
       </div>
     </section>

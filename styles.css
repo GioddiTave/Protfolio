@@ -139,6 +139,9 @@ h1,h2,h3{line-height:1.2;margin:0 0 1rem;}
 .contact__form textarea{resize:vertical;min-height:8rem;}
 .contact__form button{align-self:center;margin-top:1rem;}
 footer{background:var(--c-nav);color:var(--c-nav-text);text-align:center;padding:1rem;}
+.form-status{margin-top:1rem;font-weight:600;}          /* NEW */
+.form-status.ok{color:var(--c-accent);}                 /* NEW */
+.form-status.error{color:#c00;}
 
 /* ----------  PROJECT PAGE  ---------- */
 .project-hero{position:relative;isolation:isolate;max-height:70vh;overflow:hidden;}

@@ -46,6 +46,14 @@ const projects=[
     url:'project-roundtable.html',                         // NEW
     tools:'Illustrator InDesign VSCode HTML CSS JS',
     img:'images/projects/roundtable.jpg'                   // NEW
+  },
+  {
+    cat:'development',
+    title:'The round table',
+    desc:'Congress poster for Dr. Gabriele Schnapper MSC, Healthcare Institution South Tyrol',
+    url:'project-roundtable.html',                         // NEW
+    tools:'Illustrator InDesign VSCode HTML CSS JS',
+    img:'images/projects/roundtable.jpg'                   // NEW
   }
 ];
 
@@ -91,6 +99,38 @@ if(document.querySelector('.swiper-container')){
     breakpoints:{800:{slidesPerView:1.2},1200:{slidesPerView:1.6}}
   });
 }
+
+//CONTACT: AJAX-Versand via Formspree 
+const form   = document.getElementById('contactForm');          // NEW
+const status = document.getElementById('formStatus');           // NEW
+
+form?.addEventListener('submit', async e => {                   // NEW
+  e.preventDefault();                                           // NEW
+  status.hidden = true;                                         // NEW
+  status.className = 'form-status';                             // NEW
+
+  try{                                                          // NEW
+    const res = await fetch(form.action, {                      // NEW
+      method: 'POST', body: new FormData(form),                 // NEW
+      headers:{'Accept':'application/json'}                     // NEW
+    });                                                         // NEW
+
+    if(res.ok){                                                 // NEW
+      status.textContent = 'Danke! Nachricht gesendet.';        // NEW
+      status.classList.add('ok');                               // NEW
+      form.reset();                                             // NEW
+    }else{                                                      // NEW
+      status.textContent = 'Ups – Senden fehlgeschlagen.';      // NEW
+      status.classList.add('error');                            // NEW
+    }                                                           // NEW
+  }catch(err){                                                  // NEW
+    status.textContent = 'Netzwerk-Fehler. Bitte später nochmal.'; /* NEW */
+    status.classList.add('error');                              // NEW
+  }finally{                                                     // NEW
+    status.hidden = false;                                      // NEW
+  }                                                             // NEW
+});
+
 
 /* ----------  SIMPLE i18n  ---------- */
 const dict={
@@ -148,4 +188,19 @@ function buildSkillBars(){                                           // NEW
 }
 
 /* --- ruf die Funktion nach jedem render() oder Seitenstart auf --- */
-buildSkillBars();       
+buildSkillBars();  
+
+/* ----------------  Smooth scroll back to Top-5  ---------------- */
+/*  Ergänze diesen Mini-Block direkt nach buildSkillBars();  */
+
+const moreBox = document.getElementById('skillMore');                 // NEW
+moreBox?.addEventListener('toggle', () => {                           // NEW
+  if (!moreBox.open) {                                                // NEW  ▸ Liste wird zugeklappt
+    /* Nach 200 ms (CSS-Animation) zur Top-Liste scrollen            // NEW
+       – block:'start' zeigt die 5 Balken wieder im Viewport. */      // NEW
+    setTimeout(() => {                                                // NEW
+      document.getElementById('skillListTop')
+              .scrollIntoView({behavior:'smooth', block:'start'});    // NEW
+    }, 200);                                                          // NEW
+  }
+});    
