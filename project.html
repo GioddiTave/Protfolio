@@ -1,26 +1,17 @@
-<!DOCTYPE html>
+<!-- =======================  project.html  ===================== -->
+<!DOCTYPE html> <!-- NEW -->
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projekt Titel Platzhalter – Judith Tavella Portfolio</title>
+    <title>Projekt Titel – Judith Tavella Portfolio</title>
 
-    <!-- Basis-Styles + Swiper -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway:wght@600&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet" /> <!-- NEW -->
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="project.css" />
-    <!-- NEW Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway:wght@600&family=Roboto+Mono:wght@400&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
   </head>
 
   <body>
-    <!-- Navigation identisch zur Startseite -->
     <header class="nav" role="banner">
       <a href="index.html#home" class="nav__brand">JT</a>
       <button class="nav__toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menü öffnen">☰</button>
@@ -30,7 +21,6 @@
         <li><a class="nav__link" href="index.html#projects">Projects</a></li>
         <li><a class="nav__link" href="index.html#contact">Contact</a></li>
       </ul>
-      <!-- NEW language toggle (no flags) -->
       <ul class="lang-switch" aria-label="Sprache wechseln">
         <li><button data-lang="de" aria-pressed="true">DE</button></li>
         <li><button data-lang="en">EN</button></li>
@@ -38,132 +28,65 @@
       </ul>
     </header>
 
-    <!-- Hero‑Banner mit Titel & Teaser‑Text -->
     <section class="project-hero">
-      <picture>
-        <img
-          src="images/DIM/Thesis/Element.png"
-          alt="Hero-Bild von Projekt Titel"
-        />
-      </picture>
+      <picture><img src="images/DIM/Thesis/Element.png" alt="Hero-Bild Projekt Titel" /></picture>
       <div class="project-hero__inner">
-        <h1>Projekt Titel Platzhalter</h1>
-        <p class="subtitle">Kurzer Claim oder Untertitel in max. 2 Zeilen</p>
+        <h1>Projekt Titel</h1>
+        <p class="subtitle">Kurzer Claim oder Untertitel …</p>
       </div>
     </section>
 
-    <!-- Projekt‑Metadaten -->
     <section class="project-meta">
       <div class="container">
         <ul class="meta-list">
-          <li><strong>Kunde</strong><span>— Kunde XYZ</span></li>
+          <li><strong>Kunde</strong><span>— Kunde XYZ</span></li>
           <li><strong>Jahr</strong><span>— 2025</span></li>
-          <li><strong>Rolle</strong><span>— UX & XR‑Design</span></li>
+          <li><strong>Rolle</strong><span>— UX &amp; XR-Design</span></li>
           <li><strong>Tools</strong><span>— Blender · Unity · Figma</span></li>
         </ul>
       </div>
     </section>
 
-    
-    
-
-    <!-- Inhaltliche Story (Text + Bilder) -->
-    <article class="project-content container">
-      <h2>Über das Projekt</h2>
-      <p>Dieser Abschnitt gibt einen kompakten Überblick über Ausgangssituation, Zielsetzung und die zentrale Herausforderung des Projekts. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis massa vitae enim ullamcorper fermentum.</p>
-
-      <h3>Konzept</h3>
-      <p>Beschreibe hier deine Herangehensweise, Recherche‑Erkenntnisse und das Storytelling‑Gerüst. Maecenas eget sapien vitae turpis interdum interdum. Duis tempus, velit et varius sodales, mauris felis tempor nulla, in tristique metus augue nec justo.</p>
-
-    
-
-      <h3>Umsetzung</h3>
-      <p>Erkläre den Design‑ und Entwicklungs‑Prozess: Prototyping, Materialauswahl, technische Implementierung usw. Integer non quam at diam faucibus efficitur. Vivamus id sollicitudin sem, id tincidunt neque.</p>
-
-    
-
-      <h3>Ergebnis &amp; Impact</h3>
-      <p>Fasse Resultate, Nutzer‑Feedback und messbare KPIs zusammen. Praesent commodo tellus a dolor mattis, vitae dictum augue viverra. Cras sed ipsum at quam ullamcorper volutpat.</p>
-    </article>
-
-    
-
-<!-- ===== Variante 3: Card-Overlay (Textcard auf Bild) ===== -->
-<section class="project-section project-section--card">
-  <figure><img src="images/DIM/Thesis/Element.png" alt=""></figure>
-  <div class="text">
-    <h3>Outcome</h3>
-    <p>Textkarte schwebt über dem Bild – ideal für Key-Facts.</p>
-  </div>
-</section>
-
-<section class="project-section project-section--card-left">
-  <div class="text">
-    <h3>Research Insights</h3>
-    <p>Hervorgehobener Textkasten links, vollflächiges Bild rechts.</p>
-  </div>
-  <figure><img src="images/DIM/Thesis/Element.png" alt="Research Moodboard"></figure>
-</section>
-
-
-<section class="project-section project-section--card-bottom">
-  <figure><img src="images/DIM/Thesis/Element.png" alt="Atmosphärisches Mood-Bild"></figure>
-  <div class="text">
-    <h3>Key Facts</h3>
-    <p>Perfekt für eine knackige Zusammenfassung in 2-3 Bullet-Points.</p>
-  </div>
-</section>
-
-<section class="project-section project-section--text-two">
-  <div class="col">
-    <h3>Projektumfang</h3>
-    <p>
-      Dieser Abschnitt beschreibt Zielsetzung, Stakeholder-Bedürfnisse und
-      deinen Verantwortungsbereich. Fasse den Kontext so zusammen, dass
-      Außenstehende sofort den Mehrwert erkennen.
-    </p>
-
-    <h4>Aufgaben</h4>
-    <ul>
-      <li>User-Research &amp; Personas</li>
-      <li>UX-Konzept &amp; Wireframes</li>
-      <li>AR-Prototyp in Unity</li>
-      <li>Motion-Design für Intro-Sequence</li>
-    </ul>
-  </div>
-
-  <div class="col">
-    <h3>Ergebnisse</h3>
-    <p>
-      Hebe hier die wichtigsten Outcomes oder Learnings hervor: KPIs, Awards,
-      Nutzer-Feedback oder technische Spielereien. Ein klarer, prägnanter Text
-      verkauft das Projekt professionell und spannend.
-    </p>
-
-    <h4>Learnings</h4>
-    <p>
-      Welche Erkenntnisse nimmst du in zukünftige Projekte mit? Notiere 2-3
-      Punkte, die deine Arbeitsweise oder dein Skill-Set unterstreichen.
-    </p>
-  </div>
-</section>
-
-
-<!-- ===== Video-Layout (unverändert) ===== -->
-<section class="project-section">
-  <div class="video-wrapper">
-    <video controls src="media/demo.mp4" poster="media/poster.jpg"></video>
-  </div>
-</section>
-
-    <!-- Call‑To‑Action (zurück zu Projekten) -->
-    <section class="back-to-projects">
-      <a href="index.html#projects" class="hero__btn">Weitere Projekte</a>
+    <section class="project-gallery">
+      <div class="container">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="images/DIM/Thesis/Element.png" alt="Galeriebild 1" /></div>
+            <div class="swiper-slide"><img src="images/DIM/Thesis/Element.png" alt="Galeriebild 2" /></div>
+            <div class="swiper-slide"><img src="images/DIM/Thesis/Element.png" alt="Galeriebild 3" /></div>
+          </div>
+          <button class="swiper-button-prev" aria-label="Vorheriges Bild"></button>
+          <button class="swiper-button-next" aria-label="Nächstes Bild"></button>
+        </div>
+      </div>
     </section>
 
-    <footer>© 2025 Judith Tavella</footer>
+    <article class="project-content container">
+      <h2>Über das Projekt</h2>
+      <p>Kompakter Überblick über Ausgangssituation, Zielsetzung und die zentrale Herausforderung.</p>
 
-    <<!-- Swiper / eigene Skripte -->
+      <h3>Konzept</h3>
+      <p>Herangehensweise, Recherche-Erkenntnisse und das Storytelling-Gerüst.</p>
+
+      <figure class="wide"><img src="images/DIM/Thesis/Element.png" alt="Konzept   Moodboard" /><figcaption>Moodboards &amp; Skizzen</figcaption></figure>
+
+      <h3>Umsetzung</h3>
+      <p>Design- und Entwicklungs-Prozess: Prototyping, technische Implementierung usw.</p>
+
+      <div class="image-grid">
+        <img src="images/DIM/Thesis/Element.png" alt="Detail 1" />
+        <img src="images/DIM/Thesis/Element.png" alt="Detail 2" />
+        <img src="images/DIM/Thesis/Element.png" alt="Detail 3" />
+      </div>
+
+      <h3>Ergebnis &amp; Impact</h3>
+      <p>Resultate, Nutzer-Feedback und messbare KPIs.</p>
+    </article>
+
+    <section class="back-to-projects"><a href="index.html#projects" class="hero__btn">Weitere Projekte</a></section>
+
+    <footer>© 2025 Judith Tavella</footer>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
   </body>

@@ -1,47 +1,35 @@
-<!DOCTYPE html>
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- NEW -->
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Judith Tavella — Portfolio</title>
 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway:wght@600&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet" />
+
     <!-- Swiper CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
-    />
-    <!-- NEW Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway:wght@600&family=Roboto+Mono:wght@400&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <!-- Main Styles -->
     <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
-    <!-- Navigation -->
+    <a href="#home" class="skip-link">Zum Inhalt springen</a> <!-- NEW -->
+
+    <!-- =====================  NAVIGATION  ===================== -->
     <header class="nav" role="banner">
       <a href="#home" class="nav__brand">JT</a>
 
-      <button
-        class="nav__toggle"
-        aria-controls="primary-navigation"
-        aria-expanded="false"
-        aria-label="Menü öffnen"
-      >
-        ☰
-      </button>
+      <button class="nav__toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Hauptmenü öffnen">☰</button>
 
       <ul id="primary-navigation" class="nav__list" role="navigation">
-        <li><a class="nav__link" href="#home">Home</a></li>
-        <li><a class="nav__link" href="#about">About</a></li>
-        <li><a class="nav__link" href="#projects">Projects</a></li>
-        <li><a class="nav__link" href="#contact">Contact</a></li>
+        <li><a class="nav__link" href="#home" data-i18n="home">Home</a></li> <!-- NEW -->
+        <li><a class="nav__link" href="#about" data-i18n="about">About</a></li> <!-- NEW -->
+        <li><a class="nav__link" href="#projects" data-i18n="projects">Projects</a></li> <!-- NEW -->
+        <li><a class="nav__link" href="#contact" data-i18n="contact">Contact</a></li> <!-- NEW -->
       </ul>
 
-      <!-- NEW language toggle (no flags) -->
       <ul class="lang-switch" aria-label="Sprache wechseln">
         <li><button data-lang="de" aria-pressed="true">DE</button></li>
         <li><button data-lang="en">EN</button></li>
@@ -49,120 +37,81 @@
       </ul>
     </header>
 
-    <!-- NEW hero-slider -->
+    <!-- =====================  HERO-SLIDER  ==================== -->
     <section id="home" class="hero hero-swiper swiper" aria-label="Einleitung">
-    <div class="swiper-wrapper">
-      <!-- Slide 1 -->
-      <div class="swiper-slide hero-slide" style="background-image:url('images/DIM/Thesis/Element.png')">
-        <div class="hero__inner">
-          <h1 class="hero__title" data-i18n="p1_title">Project 1</h1>
-          <p data-i18n="p1_sub">Kurze Tagline …</p>
-          <a class="hero__btn" href="project1.html" data-i18n="view">Ansehen</a>
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide hero-slide" style="background-image:url('images/DIM/Thesis/Element.png')">
+          <div class="hero__inner">
+            <h1 class="hero__title" data-i18n="p1_title">Project 1</h1>
+            <p data-i18n="p1_sub">Kurze Tagline …</p>
+            <a class="hero__btn" href="project.html" data-i18n="view" aria-label="Project 1 ansehen">Ansehen</a>
+          </div>
         </div>
-      </div>
+
+        <!-- Slide 2 -->
         <div class="swiper-slide hero-slide" style="background-image:url('images/DIM/Babylon/7.PNG')">
-        <div class="hero__inner">
-          <h1 class="hero__title" data-i18n="p1_title">Project 2</h1>
-          <p data-i18n="p1_sub">Kurze Tagline …</p>
-          <a class="hero__btn" href="project1.html" data-i18n="view">Ansehen</a>
+          <div class="hero__inner">
+            <h1 class="hero__title" data-i18n="p2_title">Project 2</h1> <!-- NEW -->
+            <p data-i18n="p2_sub">Kurze Tagline …</p> <!-- NEW -->
+            <a class="hero__btn" href="project.html" data-i18n="view" aria-label="Project 2 ansehen">Ansehen</a>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide hero-slide" style="background-image:url('images/DIM/Web/Projekt-bestehen.png')"> <!-- NEW -->
+          <div class="hero__inner">
+            <h1 class="hero__title" data-i18n="p3_title">Project 3</h1> <!-- NEW -->
+            <p data-i18n="p3_sub">Kurze Tagline …</p> <!-- NEW -->
+            <a class="hero__btn" href="project.html" data-i18n="view" aria-label="Project 3 ansehen">Ansehen</a>
+          </div>
         </div>
       </div>
-        <div class="swiper-slide hero-slide" style="background-image:url('images/DIM/Web/!Projekt\ bestehen.png')">
-        <div class="hero__inner">
-          <h1 class="hero__title" data-i18n="p1_title">Project 3</h1>
-          <p data-i18n="p1_sub">Kurze Tagline …</p>
-          <a class="hero__btn" href="project1.html" data-i18n="view">Ansehen</a>
-        </div>
-      </div>
-        
-        </div>
-      </div>
+      <div class="swiper-pagination"></div> <!-- NEW -->
+      <button class="swiper-button-prev" aria-label="Vorherige Folie"></button> <!-- NEW -->
+      <button class="swiper-button-next" aria-label="Nächste Folie"></button>  <!-- NEW -->
     </section>
 
-    <!-- About Section -->
+    <!-- =====================  ABOUT  ========================== -->
     <section id="about" aria-labelledby="about-title">
       <div class="container about__grid">
         <div>
           <h2 id="about-title">Über mich</h2>
-          <p>
-            Zwischen Gestaltung, Storytelling und Technologie suche ich nach
-            neuen Wegen, Informationen sinnlich erlebbar zu machen. Meine
-            Wurzeln liegen im Produktdesign &amp; visueller Kommunikation –
-            heute arbeite ich an Ausstellungen, XR-Prototypen und Motion-Design.
-          </p>
+          <p>Zwischen Gestaltung, Storytelling und Technologie suche ich nach neuen Wegen, Informationen sinnlich erlebbar zu machen. Meine Wurzeln liegen im Produktdesign &amp; visueller Kommunikation – heute arbeite ich an Ausstellungen, XR-Prototypen und Motion-Design.</p>
         </div>
 
         <figure>
-          <img
-            src="portrait.jpg"
-            alt="Portrait von Judith Tavella mit VR-Headset"
-          />
+          <img src="portrait.jpg" alt="Portrait von Judith Tavella mit VR-Headset" />
         </figure>
       </div>
 
-    
-    <!-- NEW Skill-Bars (statt Chart.js) -->
-    <ul class="skill-list" id="skillList">
-      <!-- befüllt das Skript automatisch        -->
-      <!-- Platzhalter-Icons liegen in /icons/   -->
-    </ul>
-  </section>
+      <ul class="skill-list" id="skillList"></ul>
+    </section>
 
-
-    <!-- Projects Section -->
+    <!-- =====================  PROJECTS  ======================= -->
     <section id="projects" aria-labelledby="projects-title" class="projects">
-      <!-- Container hier 100 % breit -->
       <div class="container container--full">
         <h2 id="projects-title">Projekte</h2>
 
-        <div
-          class="projects__filters"
-          role="toolbar"
-          aria-label="Projektfilter"
-        >
-          <button class="filter-btn" data-filter="all" aria-pressed="true">
-            Alle
-          </button>
-          <button class="filter-btn" data-filter="design" aria-pressed="false">
-            Product Design
-          </button>
-          <button
-            class="filter-btn"
-            data-filter="branding"
-            aria-pressed="false"
-          >
-            Visuelle Kommunikation
-          </button>
-          <button
-            class="filter-btn"
-            data-filter="development"
-            aria-pressed="false"
-          >
-            Interactive Media
-          </button>
+        <div class="projects__filters" role="toolbar" aria-label="Projektfilter">
+          <button class="filter-btn" data-filter="all" aria-pressed="true">Alle</button>
+          <button class="filter-btn" data-filter="design" aria-pressed="false">Product Design</button>
+          <button class="filter-btn" data-filter="branding" aria-pressed="false">Visuelle Kommunikation</button>
+          <button class="filter-btn" data-filter="development" aria-pressed="false">Interactive Media</button>
         </div>
 
         <div class="projects__grid" id="project-grid"></div>
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- =====================  CONTACT  ======================== -->
     <section id="contact" aria-labelledby="contact-title" class="contact">
       <div class="container">
         <h2 id="contact-title">Kontakt</h2>
-        <form action="#" class="contact__form" novalidate>
-          <label>
-            <span>Name*</span>
-            <input type="text" name="name" required />
-          </label>
-          <label>
-            <span>E-Mail*</span>
-            <input type="email" name="email" required />
-          </label>
-          <label>
-            <span>Nachricht*</span>
-            <textarea name="message" rows="5" required></textarea>
-          </label>
+        <form class="contact__form" novalidate>
+          <label><span>Name*</span><input type="text" name="name" required /></label>
+          <label><span>E-Mail*</span><input type="email" name="email" required /></label>
+          <label><span>Nachricht*</span><textarea name="message" rows="5" required></textarea></label>
           <button type="submit" class="hero__btn">Senden</button>
         </form>
       </div>
@@ -172,6 +121,6 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
