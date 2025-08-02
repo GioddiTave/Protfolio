@@ -2,17 +2,24 @@
 /* ----------  NAVBAR TOGGLE  ---------- */
 const navToggle=document.querySelector('.nav__toggle');
 const navList=document.getElementById('primary-navigation');
-navToggle?.addEventListener('click',()=>{const isOpen=navList.classList.toggle('is-open');navToggle.setAttribute('aria-expanded',isOpen);});
+navToggle?.addEventListener('click',()=>{
+  const isOpen=navList.classList.toggle('is-open');
+  navToggle.setAttribute('aria-expanded',isOpen);
+  navToggle.textContent=isOpen?'✕':'☰';       // NEW – Icon wechselt
+});
 
 /* ----------  SMOOTH SCROLL  ---------- */
 document.querySelectorAll('a[href^="#"]').forEach(link=>{
   link.addEventListener('click',e=>{
     const target=document.querySelector(link.getAttribute('href'));
     if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth'});}
-    if(navList.classList.contains('is-open')){navList.classList.remove('is-open');navToggle.setAttribute('aria-expanded',false);}
+    if(navList.classList.contains('is-open')){
+      navList.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded',false);
+      navToggle.textContent='☰';              // NEW – Icon zurücksetzen
+    }
   });
 });
-
 /* ----------  PROJECTS-GRID & FILTER  ---------- */
 const projects=[
   {cat:'design',title:'Ouroboros',desc:'Modulares Möbelsystem',url:'project.html',tools:'Blender Figma'},
@@ -40,9 +47,14 @@ render();
 
 /* ----------  HERO-SWIPER  ---------- */
 if(document.querySelector('.hero-swiper')){
-  new Swiper('.hero-swiper',{loop:true,effect:'fade',pagination:{el:'.hero-swiper .swiper-pagination',clickable:true},autoplay:{delay:10000,disableOnInteraction:false}}); // NEW
+  new Swiper('.hero-swiper',{
+    loop:true,
+    effect:'fade',
+    fadeEffect:{crossFade:true},            // NEW – verhindert Überlagerungen
+    pagination:{el:'.hero-swiper .swiper-pagination',clickable:true},
+    autoplay:{delay:10000,disableOnInteraction:false},
+  });
 }
-
 /* ----------  GALLERY-SWIPER  ---------- */
 if(document.querySelector('.swiper-container')){
   new Swiper('.swiper-container',{loop:true,slidesPerView:1,spaceBetween:32,navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'},breakpoints:{800:{slidesPerView:1.2},1200:{slidesPerView:1.6}}});
