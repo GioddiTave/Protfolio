@@ -37,7 +37,7 @@ const projects=[
     desc:'Coming soon: Project with Nick Häcker',          // NEW (typo fix)
     url:'project-chessarena.html',                         // NEW
     tools:'Unity Blender Photoshop',
-    img:'images/projects/chessarena.jpg'                   // NEW
+     video: 'images/ChessARena/Komp 1.mp4'                   // NEW
   },
   {
     cat:'development',
@@ -58,10 +58,10 @@ const projects=[
   {
     cat:'branding',
     title:'AEON',
-    desc:'Congress poster for Dr. Gabriele Schnapper MSC, Healthcare Institution South Tyrol',
+    desc:'A biographical archive, a product that reminds of the value of our lives and time.',
     url:'project-roundtable.html',                         // NEW
     tools:'Illustrator InDesign VSCode HTML CSS JS',
-    img:'images/BA_Thesis2.jpg'                   // NEW
+    img:'images/BA_Thesis/Portfolio.jpg'                   // NEW
   },
   {
     cat:'design',
@@ -80,17 +80,25 @@ function render(cat='all'){
   btns.forEach(b=>b.setAttribute('aria-pressed',
     b.dataset.filter===cat||(cat==='all'&&b.dataset.filter==='all')));
 
-  grid.innerHTML=projects
-    .filter(p=>cat==='all'||p.cat===cat)
-    .map(p=>`
+   grid.innerHTML = projects
+    .filter(p => cat === 'all' || p.cat === cat)
+    .map(p => `
       <a href="${p.url}" class="card" data-cat="${p.cat}" data-tools="${p.tools}">
-        <div class="card__img" style="background-image:url('${p.img||'images/placeholder.svg'}')"></div>
+        ${
+          p.video
+            ? `<div class="card__video"><video src="${p.video}" controls poster="${p.img||'images/placeholder.svg'}"></video></div>` // NEW
+            : `<div class="card__img" style="background-image:url('${p.img||'images/placeholder.svg'}')"></div>`
+        }
         <h3>${p.title}</h3>
         <p>${p.desc}</p>
-      </a>`).join('');
+      </a>
+    `).join('');
 
   buildSkillBars();
 }
+
+btns.forEach(b => b.addEventListener('click', () => render(b.dataset.filter)));
+render();
 btns.forEach(b=>b.addEventListener('click',()=>render(b.dataset.filter)));
 render();
 
