@@ -32,7 +32,7 @@ const projects=[
     img:'images/DIM/Thesis/Element.png'
   },
   {
-    cat:'development',
+    cat:'development', 
     title:'ChessARena',
     desc:'Coming soon: Project with Nick Häcker',          // NEW (typo fix)
     url:'project-chessarena.html',                         // NEW
@@ -40,12 +40,60 @@ const projects=[
      video: 'images/ChessARena/Komp 1.mp4'                   // NEW
   },
   {
-    cat:'development',
+    cat:'development', 
     title:'The round table',
     desc:'Congress poster for Dr. Gabriele Schnapper MSC, Healthcare Institution South Tyrol',
     url:'project-roundtable.html',                         // NEW
     tools:'Illustrator InDesign VSCode HTML CSS JS',
     img:'images/Round Table/Asset 16.png'                   // NEW
+  },
+   {
+    cat:'development',
+    title:'The Flow',
+    desc:'An animation surrounding the topic of flow and bacteria.',
+    url:'project-roundtable.html',                         // NEW
+    tools:'Illustrator AfterEffects',
+    video: 'images/DIM/Animation/Judith Tavella_The Flow.mp4'                   // NEW
+  },
+   {
+    cat:'development', 
+    title:'Space is the Place_2.0', 
+    desc:'Responsive Website with the Topic of Space',
+    url:'project-roundtable.html',                         // NEW
+    tools:'Illustrator Figma VSCode HTML CSS JS',
+    img:'images/DIM/Web/Web-Showcase_Judith Tavella.png'                   // NEW
+  },
+  {
+    cat:'development',
+    title:'Babylon',
+    desc:'Congress poster for Dr. Gabriele Schnapper MSC, Healthcare Institution South Tyrol',
+    url:'project-roundtable.html',                         // NEW
+    tools:'Rhino Blender Unity',
+    img:'images/DIM/Babylon/7.PNG'                   // NEW
+  },
+  {
+    cat:'development',
+    title:'Chess',
+    desc:'An animation surrounding the topic of typografy.',
+    url:'project-roundtable.html',                         // NEW
+    tools:'AfterEffects',
+    video: 'images/DIM/Animation/Main_1.mp4'                   // NEW
+  },
+  {
+    cat:'development',
+    title:'Eleventures Mayham',
+    desc:'Congress poster for Dr. Gabriele Schnapper MSC, Healthcare Institution South Tyrol',
+    url:'project-roundtable.html',                         // NEW
+    tools:'Blender Unity',
+    img:'images/DIM/Games/ElevEntures Mayhem.png'                   // NEW
+  },
+   {
+    cat:'development',
+    title:'The Flip',
+    desc:'An animation surrounding the topic of motion.',
+    url:'project-roundtable.html',                         // NEW
+    tools:'Illustrator AfterEffects',
+    video: 'images/DIM/Animation/The FLIP.mp4'                   // NEW
   },
   {
     cat:'design',
@@ -54,15 +102,7 @@ const projects=[
     url:'project-roundtable.html',                         // NEW
     tools:'Rhino UltiMaker',
     img:'images/BA_Thesis/Untitled-3.png'                   // NEW
-  },
-  {
-    cat:'branding',
-    title:'AEON',
-    desc:'A biographical archive, a product that reminds of the value of our lives and time.',
-    url:'project-roundtable.html',                         // NEW
-    tools:'Illustrator InDesign XD',
-    img:'images/BA_Thesis/Portfolio.jpg'                   // NEW
-  },
+  }, 
   {
     cat:'design',
     title:'EDO',
@@ -72,20 +112,12 @@ const projects=[
     img:'images/PD/Cloche/Cloches_130-1024x684.jpg'                   // NEW
   },
   {
-    cat:'development',
-    title:'Space is the Place_2.0',
-    desc:'Responsive Website with the Topic of Space',
+    cat:'branding',
+    title:'AEON',
+    desc:'A biographical archive, a product that reminds of the value of our lives and time.',
     url:'project-roundtable.html',                         // NEW
-    tools:'Illustrator Figma VSCode HTML CSS JS',
-    img:'images/DIM/Web/Web-Showcase_Judith Tavella.png'                   // NEW
-  },
-  {
-    cat:'development',
-    title:'The Flow',
-    desc:'An animation surrounding the topic of flow and bacteria.',
-    url:'project-roundtable.html',                         // NEW
-    tools:'Illustrator AfterEffects',
-    video: 'images/DIM/Animation/Judith Tavella_The Flow.mp4'                   // NEW
+    tools:'Illustrator InDesign XD',
+    img:'images/BA_Thesis/Portfolio.jpg'                   // NEW
   },
   {
     cat:'design',
@@ -110,7 +142,15 @@ const projects=[
     url:'project-roundtable.html',                         // NEW
     tools:'Illustrator InDesign',
     img:'images/Buch/Kochbuch/groß.png'
-  }
+  },
+  {
+    cat:'branding',
+    title:'Space is the place',
+    desc:'Poster and specimen for the film Star Trek: Search for Spock USA 1984',
+    url:'project-roundtable.html',                         // NEW
+    tools:'Illustrator InDesign',
+    img:'images/Buch/Specimen/155212630_474214753953805_2364119800360941604_n.jpg'
+  },
 ];
 
 const grid = document.getElementById('project-grid');
