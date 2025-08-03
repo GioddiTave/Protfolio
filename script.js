@@ -103,7 +103,14 @@ function render(cat='all'){
         ${
           p.video
             ? `<div class="card__video">
-                <video src="${p.video}" autoplay muted loop playsinline poster="${p.img||'images/placeholder.svg'}"></video>
+                <video
+                  src="${p.video}"
+                  muted
+                  loop
+                  playsinline
+                  poster="${p.img || 'images/placeholder.svg'}"
+                  preload="none"          // NEW
+                ></video>
               </div>` // NEW
             : `<div class="card__img" style="background-image:url('${p.img||'images/placeholder.svg'}')"></div>`
         }
@@ -113,7 +120,36 @@ function render(cat='all'){
     `).join('');
 
   buildSkillBars();
+  setupVideoLazyPlay(); // NEW
 }
+
+function setupVideoLazyPlay() {
+  const videos = grid.querySelectorAll('video');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const video = entry.target;
+        if (entry.isIntersecting) {
+          video.play().catch(()=>{});  // Autoplay ohne Ton ist erlaubt
+        } else {
+          video.pause();
+        }
+      });
+    }, {
+      threshold: 0.2 // Erst ab ~20% sichtbar
+    });
+    videos.forEach(video => {
+      video.pause(); // Sicherstellen, dass es am Anfang pausiert ist
+      observer.observe(video);
+    });
+  } else {
+    // Fallback: einfach alle Videos abspielen
+    videos.forEach(video => video.play().catch(()=>{}));
+  }
+}
+
+btns.forEach(b => b.addEventListener('click', () => render(b.dataset.filter)));
+render();
 
 btns.forEach(b => b.addEventListener('click', () => render(b.dataset.filter)));
 render();
