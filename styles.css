@@ -1,11 +1,16 @@
 /* =======================  styles.css  ======================== */
-:root{
-  --c-bg:#fff;
-  --c-fg:#111;
-  --c-accent:#e55745;
-  --c-nav:#111;
-  --c-nav-text:#fff;
-  --s-container:min(65ch,90%);
+:root {
+  /* ==== Farbpalette ==== */
+  --c-bg: #f1eeea;           /* Body-Hintergrund: Alabaster        */   /* NEW */
+  --c-fg: #333333;           /* Text & Headlines: Space Cadet      */   /* NEW */
+  --c-accent: #8BA794;       /* Buttons aktiv, Skill-Balken: Cambr.*/   /* NEW */
+  --c-muted: #BAC6B8;        /* Ash Gray: Sektionen, leere Bars    */   /* NEW */
+  --c-nav: #2F3456;          /* Navigation BG: Space Cadet         */   /* NEW */
+  --c-nav-text: #E9E4DC;     /* Navigation Text: Alabaster         */   /* NEW */
+  --c-card: #E9E4DC;         /* Card-BG: Alabaster                 */   /* NEW */
+  --c-card-shadow: #5D6E75;  /* Card-Border/Shadow: Payne’s Gray   */   /* NEW */
+  --c-meta: #5D6E75;         /* Meta: Payne’s Gray                 */   /* NEW */
+  --s-container: min(65ch, 90%);
 }
 
 *,*::before,*::after{box-sizing:border-box;}
@@ -63,7 +68,7 @@ h1,h2,h3{line-height:1.2;margin:0 0 1rem;}
   object-fit:contain;                         /* NEW – korrekt skalieren */
 }
 .skill__bar{
-  flex:1; background:#e5e5e5; border-radius:6px;
+  flex:1; background:#c7c7c7; border-radius:6px;
   height:10px; position:relative;
 }
 .skill__bar span{display:block;height:100%;background:var(--c-accent);border-radius:inherit;}

@@ -48,13 +48,29 @@ const projects=[
     img:'images/projects/roundtable.jpg'                   // NEW
   },
   {
-    cat:'development',
-    title:'The round table',
+    cat:'design',
+    title:'Ouroboros',
+    desc:'3D prinnted Thesis-BA-Project',
+    url:'project-roundtable.html',                         // NEW
+    tools:'Rhino UltiMaker',
+    img:'images\BA_Thesis\Untitled-3.png'                   // NEW
+  },
+  {
+    cat:'branding',
+    title:'AEON',
     desc:'Congress poster for Dr. Gabriele Schnapper MSC, Healthcare Institution South Tyrol',
     url:'project-roundtable.html',                         // NEW
     tools:'Illustrator InDesign VSCode HTML CSS JS',
-    img:'images/projects/roundtable.jpg'                   // NEW
-  }
+    img:'images\BA_Thesis\2.jpg'                   // NEW
+  },
+  {
+    cat:'design',
+    title:'EDO',
+    desc:'Garden Cloche with Alberto Cappillina',
+    url:'project-roundtable.html',                         // NEW
+    tools:'Rhino KeyShot',
+    img:'images\PD\Cloche\Cloches_130-1024x684.jpg'                   // NEW
+  },
 ];
 
 const grid=document.getElementById('project-grid');
