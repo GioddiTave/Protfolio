@@ -60,7 +60,7 @@ const projects=[
     title:'AEON',
     desc:'A biographical archive, a product that reminds of the value of our lives and time.',
     url:'project-roundtable.html',                         // NEW
-    tools:'Illustrator InDesign VSCode HTML CSS JS',
+    tools:'Illustrator InDesign XD',
     img:'images/BA_Thesis/Portfolio.jpg'                   // NEW
   },
   {
@@ -70,6 +70,22 @@ const projects=[
     url:'project-roundtable.html',                         // NEW
     tools:'Rhino KeyShot',
     img:'images/PD/Cloche/Cloches_130-1024x684.jpg'                   // NEW
+  },
+  {
+    cat:'development',
+    title:'Space is the Place_2.0',
+    desc:'Responsive Website with the Topic of Space',
+    url:'project-roundtable.html',                         // NEW
+    tools:'Illustrator Figma VSCode HTML CSS JS',
+    img:'images/DIM/Web/Web-Showcase_Judith Tavella.png'                   // NEW
+  },
+  {
+    cat:'development',
+    title:'The Flow',
+    desc:'An animation surrounding the topic of flow and bacteria.',
+    url:'project-roundtable.html',                         // NEW
+    tools:'Illustrator AfterEffects',
+    video: 'images/DIM/Animation/Judith Tavella_The Flow.mp4'                   // NEW
   },
 ];
 
@@ -86,7 +102,9 @@ function render(cat='all'){
       <a href="${p.url}" class="card" data-cat="${p.cat}" data-tools="${p.tools}">
         ${
           p.video
-            ? `<div class="card__video"><video src="${p.video}" controls poster="${p.img||'images/placeholder.svg'}"></video></div>` // NEW
+            ? `<div class="card__video">
+                <video src="${p.video}" autoplay muted loop playsinline poster="${p.img||'images/placeholder.svg'}"></video>
+              </div>` // NEW
             : `<div class="card__img" style="background-image:url('${p.img||'images/placeholder.svg'}')"></div>`
         }
         <h3>${p.title}</h3>
