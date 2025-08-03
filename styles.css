@@ -174,3 +174,31 @@ footer{background:var(--c-nav);color:var(--c-nav-text);text-align:center;padding
 .image-grid img{width:100%;border-radius:.5rem;}
 @media(min-width:700px){.image-grid{grid-template-columns:repeat(3,1fr);}}
 .back-to-projects{padding:4rem 0 6rem;text-align:center;background:#fafafa;}
+
+#loader {
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.6s cubic-bezier(.66,0,.42,1);
+}
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #e55745;
+  border-top: 6px solid #111;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 2rem;
+}
+@keyframes spin {
+  to { transform: rotate(360deg);}
+}
+#loader[hidden] {
+  opacity: 0;
+  pointer-events: none;
+}

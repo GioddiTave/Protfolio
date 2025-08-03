@@ -87,16 +87,48 @@ const projects=[
     tools:'Illustrator AfterEffects',
     video: 'images/DIM/Animation/Judith Tavella_The Flow.mp4'                   // NEW
   },
+  {
+    cat:'design',
+    title:'Natoure',
+    desc:'“NATOURE” is a modular infrastructure that  can be adapted to the surrounding area',
+    url:'project-roundtable.html',                         // NEW
+    tools:'Rhino Twinmotion',
+    img:'images/PD/Infrastructure/Screenshot 2022-02-19 162404.jpg'                   // NEW
+  },
+  {
+    cat:'branding',
+    title:'B is for Bauhaus',
+    desc:'Development of a brand identity for the Bauhaus Museum Weimar',
+    url:'project-roundtable.html',                         // NEW
+    tools:'Illustrator InDesign Principle Photoshop',
+    img:'images/VC/Bauhaus/Element 7@300x.png'                   // NEW
+  },
+  {
+    cat:'branding',
+    title:'Recipe book 2.0',
+    desc:'',
+    url:'project-roundtable.html',                         // NEW
+    tools:'Illustrator InDesign',
+    img:'images/Buch/Kochbuch/groß.png'
+  }
 ];
 
-const grid=document.getElementById('project-grid');
-const btns=document.querySelectorAll('.filter-btn');
+const grid = document.getElementById('project-grid');
+const btns = document.querySelectorAll('.filter-btn');
 
-function render(cat='all'){
-  btns.forEach(b=>b.setAttribute('aria-pressed',
-    b.dataset.filter===cat||(cat==='all'&&b.dataset.filter==='all')));
+/* ----------  NEUE RENDER-FUNKTION MIT LADE-ANIMATION  ---------- */
+function render(cat = 'all') {
+  /* const loader = document.getElementById('loader');         
+  const main = document.getElementById('main-content');  */    
 
-   grid.innerHTML = projects
+  btns.forEach(b => b.setAttribute('aria-pressed',
+    b.dataset.filter === cat || (cat === 'all' && b.dataset.filter === 'all')));
+
+  // Hauptcontent vorerst ausblenden
+ /*  main.style.display = 'none';        
+  loader.removeAttribute('hidden'); */   
+
+  grid.innerHTML = projects
     .filter(p => cat === 'all' || p.cat === cat)
     .map(p => `
       <a href="${p.url}" class="card" data-cat="${p.cat}" data-tools="${p.tools}">
@@ -109,9 +141,9 @@ function render(cat='all'){
                   loop
                   playsinline
                   poster="${p.img || 'images/placeholder.svg'}"
-                  preload="none"          // NEW
+                  preload="none"
                 ></video>
-              </div>` // NEW
+              </div>`
             : `<div class="card__img" style="background-image:url('${p.img||'images/placeholder.svg'}')"></div>`
         }
         <h3>${p.title}</h3>
@@ -120,8 +152,38 @@ function render(cat='all'){
     `).join('');
 
   buildSkillBars();
-  setupVideoLazyPlay(); // NEW
+  setupVideoLazyPlay();
+
+  // Medien-Handling (NEU)
+  const media = [
+    ...grid.querySelectorAll('img'),
+    ...grid.querySelectorAll('video')
+  ];
+  let loaded = 0, total = media.length;
+
+  if (!total) finishLoading(); // Kein Media? Fertig.
+
+  media.forEach(el => {
+    if (el.tagName === 'IMG') {
+      if (el.complete) checkDone();
+      else el.onload = el.onerror = checkDone;
+    } else if (el.tagName === 'VIDEO') {
+      el.onloadeddata = el.onerror = checkDone;
+      el.load();
+    }
+  });
+
+  function checkDone() {
+    loaded++;
+    if (loaded === total) finishLoading();
+  }
+
+  function finishLoading() {
+    loader.setAttribute('hidden', '');   // Loader ausblenden
+    setTimeout(()=>main.style.display = '', 400); // Content einblenden
+  }
 }
+/* ---------------------------------------------------------- */
 
 function setupVideoLazyPlay() {
   const videos = grid.querySelectorAll('video');
@@ -130,32 +192,24 @@ function setupVideoLazyPlay() {
       entries.forEach(entry => {
         const video = entry.target;
         if (entry.isIntersecting) {
-          video.play().catch(()=>{});  // Autoplay ohne Ton ist erlaubt
+          video.play().catch(()=>{}); // Autoplay erlaubt, da muted
         } else {
           video.pause();
         }
       });
-    }, {
-      threshold: 0.2 // Erst ab ~20% sichtbar
-    });
+    }, { threshold: 0.2 });
     videos.forEach(video => {
-      video.pause(); // Sicherstellen, dass es am Anfang pausiert ist
+      video.pause();
       observer.observe(video);
     });
   } else {
-    // Fallback: einfach alle Videos abspielen
+    // Fallback für alte Browser
     videos.forEach(video => video.play().catch(()=>{}));
   }
 }
 
 btns.forEach(b => b.addEventListener('click', () => render(b.dataset.filter)));
 render();
-
-btns.forEach(b => b.addEventListener('click', () => render(b.dataset.filter)));
-render();
-btns.forEach(b=>b.addEventListener('click',()=>render(b.dataset.filter)));
-render();
-
 /* ----------  HERO-SWIPER  ---------- */
 if(document.querySelector('.hero-swiper')){
   new Swiper('.hero-swiper',{
